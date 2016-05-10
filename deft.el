@@ -1340,6 +1340,12 @@ FILE must be a relative or absolute path, with extension."
           (display-buffer buffer other))
       (switch-to-buffer buffer))))
 
+(defun deft-journal ()
+  "Create a file quickly using date of today as filename, if the file exists open that file"
+  (interactive)
+  (let ((slug (format-time-string deft-time-format)))
+      (deft-new-file-named slug)))
+
 ;;;###autoload
 (defun deft-find-file (file)
   "Find FILE interactively using the minibuffer.
